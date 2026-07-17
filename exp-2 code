@@ -1,0 +1,33 @@
+import re
+products = ["Laptop", "Laptop Bag", "Mouse", "Keyboard", "Monitor", "Mobile", "Tablet"]
+key = input("Enter Search Keyword: ")
+print("\nExact Match")
+c = 0
+for i in products:
+    if re.fullmatch(key, i, re.IGNORECASE):
+        print(i)
+        c += 1
+print("Total:", c)
+print("\nPrefix Match")
+c = 0
+for i in products:
+ 
+   if re.match(key, i, re.IGNORECASE):
+        print(i)
+        c += 1
+print("Total:", c)
+print("\nSuffix Match")
+c = 0
+for i in products:
+    if re.search(key + "$", i, re.IGNORECASE):
+        print(i)
+        c += 1
+print("Total:", c)
+print("\nPartial Match")
+c = 0
+for i in products:
+    if re.search(key, i, re.IGNORECASE):
+        print(i)
+        c += 1
+print("Total:", c)
+
