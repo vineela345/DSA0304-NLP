@@ -1,0 +1,29 @@
+import random
+
+text = "the cat sat on the mat the cat ate the fish"
+
+words = text.split()
+
+bigrams = {}
+
+for i in range(len(words) - 1):
+    word = words[i]
+    next_word = words[i + 1]
+
+    if word not in bigrams:
+        bigrams[word] = []
+
+    bigrams[word].append(next_word)
+
+current = random.choice(words)
+result = [current]
+
+for i in range(10):
+    if current in bigrams:
+        current = random.choice(bigrams[current])
+        result.append(current)
+    else:
+        break
+
+print("Generated Text:")
+print(" ".join(result))
