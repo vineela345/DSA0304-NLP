@@ -1,0 +1,27 @@
+import re
+name = input("Enter Name: ")
+email = input("Enter Email: ")
+mobile = input("Enter Mobile Number: ")
+skills = input("Enter Skills: ")
+experience = input("Enter Experience (years): ")
+print("\nCandidate Profile")
+print("Name:", name)
+if re.fullmatch(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", email):
+    print("Email:", email)
+else:
+    print("Invalid Email")
+if re.fullmatch(r"[6-9]\d{9}", mobile):
+    print("Mobile:", mobile)
+else:
+    print("Invalid Mobile Number")
+skill_list = ["Python", "Java", "SQL", "Machine Learning", "NLP"]
+found = []
+for skill in skill_list:
+    if re.search(skill, skills, re.IGNORECASE):
+        found.append(skill)
+print("Skills:", ", ".join(found))
+print("Experience:", experience, "years")
+if int(experience) >= 2 and "Python" in found:
+    print("Eligible for Shortlisting")
+else:
+    print("Not Eligible")
